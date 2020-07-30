@@ -21,7 +21,6 @@
 
    <script>
        console.log("This is a test baybeh!!");
-       console.log("Anime is:", anime);
 
        var textWrapper = document.querySelector('.lText');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -29,18 +28,26 @@ textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='let
 anime.timeline({loop: true})
   .add({
     targets: '.lText .letter',
-    scale: [4,1],
+    keyframes: [
+        {scale: [10,1]},
+        {scale: [6, 1]},
+        {scale: [3,1]}
+    ],
+    // scale: [4,1],
+    // scale: anime.stagger([4,1]),
     opacity: [0,1],
     translateZ: 0,
     easing: "easeOutExpo",
-    duration: 950,
-    delay: (el, i) => 70*i
-  }).add({
+    duration: 1500,
+     delay: (el, i) => 70*i
+    //delay: anime.stagger(70)
+  })
+  .add({
     targets: '.lText',
     opacity: 0,
-    duration: 1000,
+    duration: 3000,
     easing: "easeOutExpo",
-    delay: 1000
+    delay: 500
   });
 
    </script>
