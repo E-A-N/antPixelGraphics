@@ -2,6 +2,8 @@
 <html>  
 <head>
     <script src="js/anime.min.js"></script>
+    <script src="js/howler.core.min.js"></script>
+    <script src="js/jingle2.js"></script>
     <style>
         .lText {
             font-weight: 900;
@@ -21,7 +23,10 @@
 
    <script>
        console.log("This is a test baybeh!!");
-
+       
+       let jingle2 = new Howl({
+            src: [jingle2DATA],
+        });
        var textWrapper = document.querySelector('.lText');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
